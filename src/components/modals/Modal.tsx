@@ -12,7 +12,8 @@ interface IModal {
 
 const Modal:FC<IModal> = ({setIsVisibleModal}) => {
   const [name, setName] = useState('')
-  const [email, setEmail] = useState('') 
+  const [email, setEmail] = useState('')
+  const [isSuccess, setIsSuccess] = useState('')
 
   const closeModal = () => {
     setIsVisibleModal(false)
@@ -26,9 +27,11 @@ const Modal:FC<IModal> = ({setIsVisibleModal}) => {
         name,
         email
       })
+      setIsSuccess('true')
       MyToast('Отправка прошла успешно', true)
-      closeModal()
+      setTimeout(closeModal, 4000)
     } catch (e) {
+      setIsSuccess('false')
       MyToast('Произошла ошибка', false)
     }
   }
@@ -47,6 +50,8 @@ const Modal:FC<IModal> = ({setIsVisibleModal}) => {
         <input type='text' value={name}  onChange={(e) => setName(e.target.value)} placeholder='ФИО'/>
         <input type='text' value={email} onChange={(e) => setEmail(e.target.value)} placeholder='E-mail'/>
         <Button>Отправить</Button>
+        {isSuccess === 'true' && <div className={styles.success}>Отправка прошла успешно</div>}
+        {isSuccess === 'false' && <div className={styles.error}>Произошла ошибка</div>}
       </form>
     </div>
   )
