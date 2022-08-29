@@ -1,0 +1,32 @@
+.index {
+  display: flex;
+  padding: 120px 70px;
+  background: url('../../../public/bgimage.png') no-repeat;
+
+  >div {
+    padding-left: 110px;
+  }
+
+  .img {
+    display: block;
+    margin-left: auto;
+  }
+
+  .header {
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    color: #6C8474;
+    font-weight: 700;
+    font-size: 65px;
+    line-height: 100%;
+    max-width: 520px;
+    margin-bottom: 80px;
+  }
+
+  .btn {
+    font-weight: 400;
+    font-size: 26px;
+    line-height: 30px;
+    padding: 30px 85px;
+  }
+}
